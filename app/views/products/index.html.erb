@@ -5,15 +5,20 @@
     <th>Name</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @products.each do |product| %>
   <tr>
     <td><%= product.name %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to product_path(product), product %></td>
+    <td><%= link_to edit_product_path(product), edit_product_path(product) %></td>
+  </tr>
+<% end %>
+<% @decorated_products.each do |product| %>
+  <tr>
+    <td>DECORATED <%= product.name %></td>
+    <td><%= link_to product_path(product), product %></td>
+    <td><%= link_to edit_product_path(product), edit_product_path(product) %></td>
   </tr>
 <% end %>
 </table>
